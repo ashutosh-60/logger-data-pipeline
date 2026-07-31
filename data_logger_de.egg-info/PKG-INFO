@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: data-logger-de
+Version: 1.0.0
+Summary: An enterprise-grade, configuration-driven JSON logging package for data engineering pipelines.
+Home-page: https://github.com/enterprise/data-logger-de
+Author: Data Engineering Platform Team
+Author-email: de-team@enterprise.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: python-json-logger>=2.0.0
+Requires-Dist: pandas>=1.5.0
+Requires-Dist: SQLAlchemy>=1.4.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+include README.md
+recursive-include data_logger *.py
