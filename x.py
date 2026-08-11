@@ -3,7 +3,8 @@ import random
 from datetime import datetime
 
 # 1. Import core factory, configuration, and the inline context timer
-from data_logger import get_logger, LoggerConfig, timer_scope,log_task_by_ref, ProcessMetrics, log_task
+from data_logger import get_logger, LoggerConfig, timer_scope, ProcessMetrics, log_task
+# log_task_by_ref, 
 
 # 2. Configure the engine to permit metadata structural formats
 console_config = LoggerConfig(

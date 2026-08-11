@@ -7,7 +7,8 @@ from datetime import datetime
 
 from .config import LoggerConfig
 from .formatters import get_json_formatter
-from .lineage import LineageFilter, current_run_id, initialize_pipeline_context
+from .lineage import LineageFilter, set_pipeline_run_id
+# current_run_id, initialize_pipeline_context
 
 
 def get_logger(name: str, config: LoggerConfig = None) -> logging.Logger:
@@ -25,7 +26,8 @@ def get_logger(name: str, config: LoggerConfig = None) -> logging.Logger:
     # # ---------------------------------------------------------------------
     # # Automatic run‑id provisioning (lineage convenience)
     # # ---------------------------------------------------------------------
-    # if config.include_lineage:
+    if config.include_lineage:
+        set_pipeline_run_id()  # Lazily initializes a run identifier if one does not already exist.
     #     # Lazily initialise a run identifier if one does not already exist.
     #     if not current_run_id.get():
     #         initialize_pipeline_context()

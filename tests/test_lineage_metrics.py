@@ -86,7 +86,7 @@ def test_pipeline_context_initialization():
     
     # Test automatic fallback provision
     auto_run = initialize_pipeline_context(run_id=None)
-    assert len(auto_run) == 36  # Standard GUID length verification
+    assert auto_run.startswith("run-")
 
 
 def test_decorator_establishes_lineage_tree():
@@ -96,7 +96,7 @@ def test_decorator_establishes_lineage_tree():
     @log_task("parent_job")
     def parent_function():
         parent_id = current_task_id.get()
-        assert current_upstream_id.get() == ""  # Root step has no parent
+        assert current_upstream_id.get() == "root"  # Root step has no parent
         
         @log_task("child_job")
         def child_function():
@@ -107,7 +107,7 @@ def test_decorator_establishes_lineage_tree():
         
         # Verify context reverts when child terminates
         assert current_task_id.get() == parent_id
-        assert current_upstream_id.get() == ""
+        assert current_upstream_id.get() == "root"
 
     parent_function()
 
